@@ -1,0 +1,41 @@
+#ORIGINAL(thick crust)
+*Classic
+hawaiian 
+ham and cheese 
+peperoni
+
+*SUPREME
+porkfloss 
+overload
+pizzahausspecial
+
+
+#PREMIUM
+beefmushroom 
+crabgarlic
+chinesesausage
+cheeseburger
+sisig
+tunacorn
+bacon
+
+#thin crust
+crabbycorn
+chickenpoppers
+lakreta
+beefteriyaki
+meatydeluxe
+
+#thin crust best seller
+hawaiiandelight
+alohabaconcheeseburger
+korean
+
+#special pizza combo
+combo a / pepsi
+combo b/ pepsi
+
+#drinks
+c2solo
+pepsidrinks
+mineralwata
