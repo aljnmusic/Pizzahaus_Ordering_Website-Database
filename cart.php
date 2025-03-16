@@ -112,7 +112,7 @@ session_start();
         </div>
 
         <div class="flex flex-col items-center justify-center mx-3">
-            <form action="insert_customer.php" method="POST">
+            <form id="checkout_form" action="insert_customer.php" method="POST">
                 <input type="text" name="name" placeholder="Name (Optional)" class="input input-bordered input-accent w-full  mt-4" id="name-input" required />
                 <input type="email" name="email" placeholder="Email (Optional)" class="input input-bordered input-accent w-full mt-4" id="email-input" required />
                 <input type="number" name="phone" placeholder="Phone number (Optional)" class="input input-bordered input-accent w-full mt-4" id="phone-input" required />
@@ -121,8 +121,10 @@ session_start();
                 <!-- <button onclick="modal.showModal()" type="submit" class="btn btn-primary w-full mt-4">Submit Order</button> -->
 
                 <div class="mt-4 text-lg flex flex-col items-center justify-center">
-                    <strong>Grand Total: <span id="final-total">₱0</span></strong>
+                    <strong>Grand Total: <span id="final-total" name="total">₱0</span></strong>
                 </div>
+
+                <input type="hidden" name="total_amount" id="total-amount-input">
 
                 <div class="flex flex-col items-center justify-center mx-0 mt-4 w-full">
                     <div class="form-control w-full max-w-xs lg:max-w-lg">
@@ -137,6 +139,7 @@ session_start();
 <!-- 
         <button onclick="modal.showModal()" class="mt-4 mb-2 bg-green-300 text-white px-4 py-2 rounded hover:bg-green-500 mx-3" >Place Order</button> -->
 
+                <input type="hidden" name="cart_data" id="cart-data">
                 <button onclick="modal.showModal()" type="submit" class="btn btn-primary w-full mt-4">Submit Order</button>
                 <!-- <button onclick="clearCart()" class="mt-4 mb-4 bg-red-500 w-full text-white px-4 py-2 rounded hover:bg-red-600 ">Clear Cart</button> -->
 
@@ -195,6 +198,22 @@ session_start();
             });
 
             finalTotal.textContent = `₱${totalPrice}`;
+
+            // document.getElementById("total-amount-input").value = totalPrice;
+
+            document.addEventListener("DOMContentLoaded", function () {
+                let cart = localStorage.getItem("cart") || "[]";
+                document.getElementById("cart-data").value = cart;
+                
+                let totalAmount = 0;
+                let cartItems = JSON.parse(cart);
+                cartItems.forEach(item => {
+                    totalAmount += item.price * item.quantity;
+                });
+
+                document.getElementById("total-amount-input").value = totalAmount;
+            });
+            
         }
 
         // Function to update quantity

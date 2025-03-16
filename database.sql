@@ -25,6 +25,14 @@ create table orders(
     payment_status varchar(255)
 );
 
+alter table orders
+modify column order_id int auto_increment;
+
+alter table orders
+modify column total_amount decimal(10, 2);
+
+
+
 ALTER TABLE orders
 MODIFY order_id int AUTO_INCREMENT;
 
@@ -140,6 +148,9 @@ ALTER TABLE notification ADD FOREIGN KEY (customer_id) REFERENCES customer(custo
 ALTER TABLE product_raw_material ADD COLUMN used_quantity INT;
 
 select *
+from product;
+
+select *
 from customer;
 
 use pizzahaus;
@@ -152,10 +163,28 @@ WHERE TABLE_SCHEMA = 'pizzahaus' AND TABLE_NAME = 'customer';
 TRUNCATE TABLE customer;
 
 SET FOREIGN_KEY_CHECKS = 0;
-TRUNCATE TABLE customer;
+TRUNCATE TABLE product;
+truncate table orders;
 SET FOREIGN_KEY_CHECKS = 1;
 ALTER TABLE customer AUTO_INCREMENT = 1;
 
 ALTER TABLE customer MODIFY customer_id INT NOT NULL AUTO_INCREMENT;
+
+insert into product (name, category, price)
+value
+('Mineral Water', 'Drinks', 20),
+('Pepsi', 'Drinks', 25),
+('C2 Green Tea Solo', 'Drinks', 25);
+
+select *
+from customer;
+
+select *
+from orders;
+
+
+alter table product 
+modify column price decimal (10, 2);
+
 
 
