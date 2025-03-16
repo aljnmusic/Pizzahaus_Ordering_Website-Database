@@ -34,23 +34,40 @@ $stmt->bind_param("id", $customer_id, $total_amount);
 if ($stmt->execute()) {
     $order_id = $stmt->insert_id;  // Get the inserted order_id
     $stmt->close();
+
+    $payment_method = "Cash";
+    $payment_status = "Unpaid";
+
+    $sql_invoice = "INSERT INTO invoice (order_id, amount, payment_method, payment_status, issue_date)
+                    VALUES (?, ?, ?, ?, CURDATE())";
+    $stmt_invoice = $conn->prepare($sql_invoice);
+    $stmt_invoice->bind_param("idss", $order_id, $total_amount, $payment_method, $payment_status);
+    $stmt_invoice->execute();
+    $stmt_invoice->close();
     
     // Insert each cart item into order_item table
     foreach ($cart_data as $item) {
-        $product_id = $item['product_id']; // Assuming cart data has product_id
-        $quantity = $item['quantity'];
-
-        // Insert into order_item
-        $sql_order_item = "INSERT INTO order_item (order_id, product_id, quantity) 
-                           VALUES (?, ?, ?)";
-        $stmt_order_item = $conn->prepare($sql_order_item);
-        $stmt_order_item->bind_param("iii", $order_id, $product_id, $quantity);
-
-        if (!$stmt_order_item->execute()) {
-            die("Error inserting order item: " . $stmt_order_item->error);
+        $product_name = $item['name'];  // Get the product name from the cart
+        $quantity = $item['quantity'];  // Get the quantity from the cart
+    
+        // Retrieve the correct product_id from the database based on the product name
+        $product_query = "SELECT product_id FROM product WHERE name = '$product_name' LIMIT 1";
+        $result = $conn->query($product_query);
+    
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            $product_id = $row['product_id'];
+    
+            // Insert into order_item table with the correct product_id
+            $sql_order_item = "INSERT INTO order_item (order_id, product_id, quantity) 
+                               VALUES ('$order_id', '$product_id', '$quantity')";
+    
+            if (!$conn->query($sql_order_item)) {
+                die("Error inserting order item: " . $conn->error);
+            }           
+        } else {
+            die("Error: Product not found in database!");
         }
-
-        $stmt_order_item->close();
     }
 
     mysqli_close($conn);
