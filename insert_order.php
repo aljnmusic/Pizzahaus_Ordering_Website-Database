@@ -72,6 +72,7 @@ if ($stmt->execute()) {
 
     mysqli_close($conn);
 
+
     // Redirect to tracking page
     header("Location: tracking.php");
     exit();

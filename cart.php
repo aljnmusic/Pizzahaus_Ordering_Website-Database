@@ -167,6 +167,7 @@ session_start();
     
 
     <script>
+
         const cartItemsContainer = document.getElementById("cart-items");
         const finalTotal = document.getElementById("final-total");
 
@@ -242,6 +243,7 @@ session_start();
 
         // Load cart items on page load
         displayCart();
+        
         
     </script>
     
