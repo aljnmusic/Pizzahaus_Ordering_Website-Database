@@ -40,8 +40,8 @@
                     <ul tabindex="0" class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow flex justify-center items-center absolute top-12">
                         <li><a href="menu.php">🍕 Menu / Order Now</a></li>
                         <li><a href="cart.php">🛒 Cart & Checkout</a></li>
-                        <li><a href="">📦 Order Tracking</a></li>
-                        <li><a>🔥 Special Offers</a></li>
+                        <li><a href="tracking.php">📦 Order Tracking</a></li>
+                        <li><a href="special.php">🔥 Special Offers</a></li>
                         <li><a href="contact.php">📞 Contact Us</a></li>
                         <li><a href="about.php">ℹ About Us</a></li>
                         <li><a href="FAQ.php">❓FAQ</a></li>
@@ -84,7 +84,7 @@
                     <li class="px-2"><a href="menu.php" class="dancing-script-uniquifier text-xl lg:hover:bg-transparent lg:hover:text-base-100 lg:rounded-8xl lg:p-2 lg:hover:scale-105 lg:transition-all lg:duration-300 lg:ease-in lg:delay-100">🍕 Menu / Order Now</a></li>
                     <li class="px-2"><a href="cart.php" class="dancing-script-uniquifier text-xl lg:hover:bg-transparent lg:hover:text-base-100 lg:rounded-8xl lg:p-2 lg:hover:scale-105 lg:transition-all lg:duration-300 lg:ease-in lg:delay-100">🛒 Cart & Checkout</a></li>
                     <li class="px-2"><a href="tracking.php" class="dancing-script-uniquifier text-xl lg:hover:bg-transparent lg:hover:text-base-100 lg:rounded-8xl lg:p-2 lg:hover:scale-105 lg:transition-all lg:duration-300 lg:ease-in lg:delay-100">📦 Order Tracking</a></li>
-                    <li class="px-2"><a>🔥 Special Offers</a></li>
+                    <li class="px-2"><a href="special.php" class="dancing-script-uniquifier text-xl lg:hover:bg-transparent lg:hover:text-base-100 lg:rounded-8xl lg:p-2 lg:hover:scale-105 lg:transition-all lg:duration-300 lg:ease-in lg:delay-100">🔥 Special Offers</a></li>
                     <li class="px-2"><a href="contact.php" class="dancing-script-uniquifier text-xl lg:hover:bg-transparent lg:hover:text-base-100 lg:rounded-8xl lg:p-2 lg:hover:scale-105 lg:transition-all lg:duration-300 lg:ease-in lg:delay-100">✉️ Contact Us</a></li>
                     <li class="px-2"><a href="about.php" class="dancing-script-uniquifier text-xl lg:hover:bg-transparent lg:hover:text-base-100 lg:rounded-8xl lg:p-2 lg:hover:scale-105 lg:transition-all lg:duration-300 lg:ease-in lg:delay-100">🌐 About Us</a></li>
                     <li class="px-2"><a href="FAQ.php" class="dancing-script-uniquifier text-xl lg:hover:bg-transparent lg:hover:text-base-100 lg:rounded-8xl lg:p-2 lg:hover:scale-105 lg:transition-all lg:duration-300 lg:ease-in lg:delay-100">❓ FAQ</a></li>
@@ -196,12 +196,12 @@
                         <p class="text-2xl font-bold text-sans">🔎Browse our menu <br class="block lg:hidden"> and order now!🚀</p>
                         <button class="btn btn-accent btn-wide mt-2"><a href="menu.php">Menu / Order Now</a></button>
         </div>
-    </main>
 
-    <footer class="footer bg-accent items-center p-4">
-        <aside class="grid-flow-col items-center text-center bg-accent text-stone-950">
-            <p>Copyright © 2025 - All right reserved Pizza Haus</p>
-        </aside>
-    </footer>
+        <footer class="footer bg-accent items-center p-4">
+            <aside class="grid-flow-col items-center text-center bg-accent text-stone-950 text-sm lg:text-md">
+                <p>Copyright © 2025 - All right reserved Pizza Haus</p>
+            </aside>
+        </footer>
+    </main>
 </body>
 </html>

@@ -87,7 +87,7 @@
                     <li class="px-2"><a href="home.php" class="dancing-script-uniquifier text-xl lg:hover:bg-transparent lg:hover:text-base-100 lg:rounded-8xl lg:p-2 lg:hover:scale-105 lg:transition-all lg:duration-300 lg:ease-in lg:delay-100">🏠 Home</a></li>
                     <li class="px-2"><a href="cart.php" class="dancing-script-uniquifier text-xl lg:hover:bg-transparent lg:hover:text-base-100 lg:rounded-8xl lg:p-2 lg:hover:scale-105 lg:transition-all lg:duration-300 lg:ease-in lg:delay-100">🛒 Cart & Checkout</a></li>
                     <li class="px-2"><a href="tracking.php" class="dancing-script-uniquifier text-xl lg:hover:bg-transparent lg:hover:text-base-100 lg:rounded-8xl lg:p-2 lg:hover:scale-105 lg:transition-all lg:duration-300 lg:ease-in lg:delay-100">📦 Order Tracking</a></li>
-                    <li class="px-2"><a>🔥 Special Offers</a></li>
+                    <li class="px-2"><a href="special.php" class="dancing-script-uniquifier text-xl lg:hover:bg-transparent lg:hover:text-base-100 lg:rounded-8xl lg:p-2 lg:hover:scale-105 lg:transition-all lg:duration-300 lg:ease-in lg:delay-100">🔥 Special Offers</a></li>
                     <li class="px-2"><a href="contact.php" class="dancing-script-uniquifier text-xl lg:hover:bg-transparent lg:hover:text-base-100 lg:rounded-8xl lg:p-2 lg:hover:scale-105 lg:transition-all lg:duration-300 lg:ease-in lg:delay-100">✉️ Contact Us</a></li>
                     <li class="px-2"><a href="about.php" class="dancing-script-uniquifier text-xl lg:hover:bg-transparent lg:hover:text-base-100 lg:rounded-8xl lg:p-2 lg:hover:scale-105 lg:transition-all lg:duration-300 lg:ease-in lg:delay-100">🌐 About Us</a></li>
                     <li class="px-2"><a href="FAQ.php" class="dancing-script-uniquifier text-xl lg:hover:bg-transparent lg:hover:text-base-100 lg:rounded-8xl lg:p-2 lg:hover:scale-105 lg:transition-all lg:duration-300 lg:ease-in lg:delay-100">❓ FAQ</a></li>
@@ -1126,7 +1126,7 @@
 
         </div>
         
-        <div class="flex flex-col bg-white justify-center items-center mr-2">
+        <div class="flex flex-col bg-white justify-center items-center mr-2 mb-2">
                 <div class="flex flex-col bg-white border border-gray-200 rounded-lg shadow w-1/2 justify-center items-center ml-2 mt-2">
                     <a href="#">
                         <img class="p-0 rounded-t-lg w-32 h-32" src="img/pepsidrinks.png" alt="product image" />
@@ -1162,14 +1162,12 @@
                 </div>
         </div>
 
-
+        <footer class="footer bg-accent items-center p-4">
+            <aside class="grid-flow-col items-center text-center bg-accent text-stone-950 text-sm lg:text-md">
+                <p>Copyright © 2025 - All right reserved Pizza Haus</p>
+            </aside>
+        </footer>
     </main>
-
-    <footer class="footer bg-accent items-center p-4">
-        <aside class="grid-flow-col items-center text-center bg-accent text-stone-950">
-            <p>Copyright © 2025 - All right reserved Pizza Haus</p>
-        </aside>
-    </footer>
 
     <script>
     // Initialize cart from localStorage

@@ -30,14 +30,11 @@
 <body class="h-screen flex justify-center align-center flex-col bg-slate-500">
 
     <header class="navbar bg-blue-400 text-center p-0 flex justify-center align-center">
-
             <div class="block lg:hidden">
                 <div class="flex-none">
                     <img src="img/emlogo.png" alt="" class="h-9 w-full">
                 </div>
             </div>
-
-        </div>
     </header>
 
     <main class="flex-grow flex flex-col justify-center align-center     bg-base-100 overflow-auto w-full">
@@ -73,7 +70,7 @@
         </div>
     </main>
 
-        <footer class="footer bg-blue-400 items-center p-4">
+    <footer class="footer bg-blue-400 items-center p-4">
         <aside class="grid-flow-col items-center text-center bg-blue-400 text-stone-950">
             <p>Copyright © 2025 - All right reserved Pizza Haus</p>
         </aside>

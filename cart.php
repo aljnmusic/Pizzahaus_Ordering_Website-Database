@@ -70,7 +70,7 @@ session_start();
                     <li class="px-2"><a href="home.php" class="dancing-script-uniquifier text-xl lg:hover:bg-transparent lg:hover:text-base-100 lg:rounded-8xl lg:p-2 lg:hover:scale-105 lg:transition-all lg:duration-300 lg:ease-in lg:delay-100">🏠 Home</a></li>
                     <li class="px-2"><a href="menu.php" class="dancing-script-uniquifier text-xl lg:hover:bg-transparent lg:hover:text-base-100 lg:rounded-8xl lg:p-2 lg:hover:scale-105 lg:transition-all lg:duration-300 lg:ease-in lg:delay-100">🍕 Menu / Order Now</a></li>
                     <li class="px-2"><a href="tracking.php" class="dancing-script-uniquifier text-xl lg:hover:bg-transparent lg:hover:text-base-100 lg:rounded-8xl lg:p-2 lg:hover:scale-105 lg:transition-all lg:duration-300 lg:ease-in lg:delay-100">📦 Order Tracking</a></li>
-                    <li class="px-2"><a>🔥 Special Offers</a></li>
+                    <li class="px-2"><a href="special.php" class="dancing-script-uniquifier text-xl lg:hover:bg-transparent lg:hover:text-base-100 lg:rounded-8xl lg:p-2 lg:hover:scale-105 lg:transition-all lg:duration-300 lg:ease-in lg:delay-100">🔥 Special Offers</a></li>
                     <li class="px-2"><a href="contact.php" class="dancing-script-uniquifier text-xl lg:hover:bg-transparent lg:hover:text-base-100 lg:rounded-8xl lg:p-2 lg:hover:scale-105 lg:transition-all lg:duration-300 lg:ease-in lg:delay-100">✉️ Contact Us</a></li>
                     <li class="px-2"><a href="about.php" class="dancing-script-uniquifier text-xl lg:hover:bg-transparent lg:hover:text-base-100 lg:rounded-8xl lg:p-2 lg:hover:scale-105 lg:transition-all lg:duration-300 lg:ease-in lg:delay-100">🌐 About Us</a></li>
                     <li class="px-2"><a href="FAQ.php" class="dancing-script-uniquifier text-xl lg:hover:bg-transparent lg:hover:text-base-100 lg:rounded-8xl lg:p-2 lg:hover:scale-105 lg:transition-all lg:duration-300 lg:ease-in lg:delay-100">❓ FAQ</a></li>
@@ -113,10 +113,10 @@ session_start();
 
         <div class="flex flex-col items-center justify-center mx-3">
             <form id="checkout_form" action="insert_customer.php" method="POST">
-                <input type="text" name="name" placeholder="Name (Optional)" class="input input-bordered input-accent w-full  mt-4" id="name-input" required />
-                <input type="email" name="email" placeholder="Email (Optional)" class="input input-bordered input-accent w-full mt-4" id="email-input" required />
-                <input type="number" name="phone" placeholder="Phone number (Optional)" class="input input-bordered input-accent w-full mt-4" id="phone-input" required />
-                <input type="text" name="address" placeholder="Address (Optional)" class="input input-bordered input-accent w-full mt-4" id="address-input" required />
+                <input type="text" name="name" placeholder="Name" class="input input-bordered input-accent w-full  mt-4" id="name-input" required />
+                <input type="email" name="email" placeholder="Email" class="input input-bordered input-accent w-full mt-4" id="email-input" required />
+                <input type="number" name="phone" placeholder="Phone number" class="input input-bordered input-accent w-full mt-4" id="phone-input" required />
+                <input type="text" name="address" placeholder="Address" class="input input-bordered input-accent w-full mt-4" id="address-input" required />
 
                 <!-- <button onclick="modal.showModal()" type="submit" class="btn btn-primary w-full mt-4">Submit Order</button> -->
 
