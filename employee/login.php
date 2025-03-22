@@ -1,3 +1,47 @@
+<?php
+session_start();
+include "employee_db.php";
+
+$error_message = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (!empty($_POST["username"]) && !empty($_POST["password"])) {
+        $username = $_POST["username"];
+        $password = trim($_POST["password"]);
+
+        $stmt = $conn->prepare("SELECT * FROM employee WHERE username = ?");
+        $stmt->bind_param("s", $username);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            $storedHashedPassword = $row["password"];
+
+            if (password_verify($password, $storedHashedPassword)) {
+                $_SESSION["employee_id"] = $row["employee_id"];
+                $_SESSION["username"] = $row["username"];
+                $_SESSION["role"] = $row["role"];
+
+                header("Location: dashboard.php");
+                exit();
+            } else {
+                $error_message = "❌ Invalid username or password.";
+            }
+        } else {
+            $error_message = "❌ Employee not found.";
+        }
+        
+        $stmt->close();
+    } else {
+        $error_message = "❌ Please enter both username and password.";
+    }
+}
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,9 +90,9 @@
                         <p class="mt-2 text-gray-500">Sign in below to access your account</p>
                     </div>
                     <div class="mt-5">
-                        <form action="loginauth.php" method="POST">
+                        <form action="" method="POST">
                             <div class="relative mt-6">
-                                <input type="email" name="username" id="username" placeholder="Username" class="peer mt-1 w-full border-b-2 border-gray-300 px-0 py-1 placeholder:text-transparent focus:border-gray-500 focus:outline-none" autocomplete="NA" />
+                                <input type="text" name="username" id="username" placeholder="Username" class="peer mt-1 w-full border-b-2 border-gray-300 px-0 py-1 placeholder:text-transparent focus:border-gray-500 focus:outline-none" autocomplete="NA" />
                                 <label for="email" class="pointer-events-none absolute top-0 left-0 origin-left -translate-y-1/2 transform text-sm text-gray-800 opacity-75 transition-all duration-100 ease-in-out peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-focus:top-0 peer-focus:pl-0 peer-focus:text-sm peer-focus:text-gray-800">Username</label>
                             </div>
                             <div class="relative mt-6">
@@ -58,6 +102,11 @@
                             <div class="my-6">
                                 <button type="submit" class="w-full rounded-md bg-blue-400 px-3 py-4 text-white focus:bg-gray-600 focus:outline-none">Sign in</button>
                             </div>
+
+                            <?php if (!empty($error_message)): ?>
+                                <p class="text-center text-red-500 font-semibold mt-2"><?php echo $error_message; ?></p>
+                            <?php endif; ?>
+
                             <p class="text-center text-sm text-gray-500">Don&#x27;t have an account yet? <br>
                                 <a href="#!"
                                     class="font-semibold text-gray-600 hover:underline focus:text-gray-800 focus:outline-none">Contact Your Admin.
