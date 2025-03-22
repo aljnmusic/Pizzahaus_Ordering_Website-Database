@@ -20,6 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             if (password_verify($password, $storedHashedPassword)) {
                 $_SESSION["employee_id"] = $row["employee_id"];
+                $_SESSION["name"] = $row["name"];
                 $_SESSION["username"] = $row["username"];
                 $_SESSION["role"] = $row["role"];
 
