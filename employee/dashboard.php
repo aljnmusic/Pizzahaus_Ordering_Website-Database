@@ -52,49 +52,6 @@ $role = $_SESSION["role"];
 </head>
 <body class="h-screen flex flex-col">
 <header class="navbar bg-blue-400 text-center p-0 flex flex-row justify-center align center w-full">
-        <!-- <div class="flex items-center justify-between gap-2 w-full h-full p-0 flex-1 block">
-            <div class="block lg:hidden">
-                <div class="dropdown relative block">
-                    <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" />
-                        </svg>
-                    </div>
-                    <ul tabindex="0" class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow flex justify-center items-center absolute top-12">
-                        <li><a href="home.php">🏠 Home</a></li>
-                        <li><a href="menu.php">🍕 Menu / Order Now</a></li>
-                        <li><a>📦 Order Tracking</a></li>
-                        <li><a>🔥 Special Offers</a></li>
-                        <li><a href="contact.php">✉️ Contact Us</a></li>
-                        <li><a href="about.php">ℹ About Us</a></li>
-                        <li><a href="FAQ.php">❓FAQ</a></li>
-                    </ul>
-                </div> 
-            </div>
-
-            <div class="block lg:hidden">
-                <div class="flex-1 flex justify-center items-center">
-                    <img src="img/logo1.png" alt="Logo" class="h-12">
-                </div>
-            </div>
-
-            <div class="block lg:hidden">
-                <div class="flex-none">
-                    <img src="img/logo.png" alt="" class="h-9">
-                </div>
-            </div>
-
-            <div class="w-full hidden lg:block flex flex-row">
-                <ul class="flex flex-row gap-24 justify-center items-center">
-                    <li class="px-2"><a href="home.php" class="dancing-script-uniquifier text-xl lg:hover:bg-transparent lg:hover:text-base-100 lg:rounded-8xl lg:p-2 lg:hover:scale-105 lg:transition-all lg:duration-300 lg:ease-in lg:delay-100">🏠 Home</a></li>
-                    <li class="px-2"><a href="menu.php" class="dancing-script-uniquifier text-xl lg:hover:bg-transparent lg:hover:text-base-100 lg:rounded-8xl lg:p-2 lg:hover:scale-105 lg:transition-all lg:duration-300 lg:ease-in lg:delay-100">🍕 Menu / Order Now</a></li>
-                    <li class="px-2"><a href="tracking.php" class="dancing-script-uniquifier text-xl lg:hover:bg-transparent lg:hover:text-base-100 lg:rounded-8xl lg:p-2 lg:hover:scale-105 lg:transition-all lg:duration-300 lg:ease-in lg:delay-100">📦 Order Tracking</a></li>
-                    <li class="px-2"><a href="special.php" class="dancing-script-uniquifier text-xl lg:hover:bg-transparent lg:hover:text-base-100 lg:rounded-8xl lg:p-2 lg:hover:scale-105 lg:transition-all lg:duration-300 lg:ease-in lg:delay-100">🔥 Special Offers</a></li>
-                    <li class="px-2"><a href="contact.php" class="dancing-script-uniquifier text-xl lg:hover:bg-transparent lg:hover:text-base-100 lg:rounded-8xl lg:p-2 lg:hover:scale-105 lg:transition-all lg:duration-300 lg:ease-in lg:delay-100">✉️ Contact Us</a></li>
-                    <li class="px-2"><a href="about.php" class="dancing-script-uniquifier text-xl lg:hover:bg-transparent lg:hover:text-base-100 lg:rounded-8xl lg:p-2 lg:hover:scale-105 lg:transition-all lg:duration-300 lg:ease-in lg:delay-100">🌐 About Us</a></li>
-                    <li class="px-2"><a href="FAQ.php" class="dancing-script-uniquifier text-xl lg:hover:bg-transparent lg:hover:text-base-100 lg:rounded-8xl lg:p-2 lg:hover:scale-105 lg:transition-all lg:duration-300 lg:ease-in lg:delay-100">❓ FAQ</a></li>
-                </ul>
-            </div> -->
 
             <div class="flex flex-row justify-between w-3/4">
             <h2 class="text-2xl font-semibold text-center">👨‍💼 Employee Dashboard</h2>
@@ -118,7 +75,13 @@ $role = $_SESSION["role"];
                 </div>
 
 
-                <div class="flex flex-col flex-grow items-center justify-center">
+                <div class="flex flex-col flex-grow">
+<!-- 
+                    <section id="dashboard" class="h-screen w-full flex flex-col justify-center align-center">
+                        <div class="flex justify-center align-center">
+                            <h2 class="text-5xl font-semibold mb-4 h-24">👨‍💼 Welcome to your Employee Dashboard</h2>
+                        </div>
+                    </section> -->
                 
                     <section id="view_orders" class="hidden-section">
                         <h2 class="text-2xl font-semibold mb-4">📋 View Orders</h2>
@@ -132,8 +95,29 @@ $role = $_SESSION["role"];
                         <h2 class="text-2xl font-semibold mb-4">📝 View Order Details</h2>
                     </section>
 
-                    <section id="employee_info" class="hidden-section">
-                        <h2 class="text-2xl font-semibold mb-4">📍 Employee Info</h2>
+                    <section id="employee_info" class="hidden-section w-full h-full">
+                        <div class="flex flex-row w-full h-full">
+                            <div class="w-1/2 flex justify-center align-center items-center">
+                                <!-- <h2 class="text-2xl font-semibold mb-4">📍 Employee Info</h2> -->
+                                <div class="rounded-2xl border-2 border-black w-3/4 mb-36">
+                                    <img src="img/rey.png" alt="">
+                                </div>
+                            </div>
+
+                            <div class="w-1/2 mx-10">
+                                <h2 class="text-3xl font-semibold mb-4 mt-32">📍 Employee Details 📍</h2>
+                                <div class="flex flex-col">
+                                    <h3 class="text-2xl font-semibold mb-5">👤 Employee ID: <?php echo $_SESSION["employee_id"]; ?></h3>
+                                    <h3 class="text-2xl font-semibold mb-5">📛 Full Name: <?php echo $_SESSION["name"]; ?></h3>
+                                    <h3 class="text-2xl font-semibold mb-5">📧 Email: <?php echo $_SESSION["email"]; ?></h3>
+                                    <h3 class="text-2xl font-semibold mb-5">📞 Phone Number: <?php echo $_SESSION["phone_number"]; ?></h3>
+                                    <h3 class="text-2xl font-semibold mb-5">🎭 Role: <?php echo $_SESSION["role"]; ?></h3>
+                                    <h3 class="text-2xl font-semibold mb-5">📅 Date of Employment: <?php echo $_SESSION["hire_date"]; ?></h3>
+                                    <h3 class="text-2xl font-semibold mb-5">🥼 Employee Type: <?php echo $_SESSION["type"]; ?></h3>
+                                    <h3 class="text-2xl font-semibold mb-5">📧 Employee Status: <?php echo $_SESSION["status"]; ?></h3>
+                                </div>
+                            </div>
+                        </div>
                     </section>
 
                 </div>
@@ -150,6 +134,6 @@ $role = $_SESSION["role"];
             <aside class="grid-flow-col items-center text-center bg-blue-400 text-stone-950">
                 <p>Copyright © 2025 - All right reserved Pizza Haus</p>
             </aside>
-        </footer>
+    </footer>
 </body>
 </html>

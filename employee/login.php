@@ -23,6 +23,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $_SESSION["name"] = $row["name"];
                 $_SESSION["username"] = $row["username"];
                 $_SESSION["role"] = $row["role"];
+                $_SESSION["hire_date"] = $row["hire_date"];
+                $_SESSION["type"] = $row["type"];
+                $_SESSION["status"] = $row["status"];
+                $_SESSION["email"] = $row["email"];
+                $_SESSION["phone_number"] = $row["phone_number"];
 
                 header("Location: dashboard.php");
                 exit();
