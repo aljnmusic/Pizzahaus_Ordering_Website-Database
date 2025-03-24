@@ -1,12 +1,14 @@
 <?php
 session_start();
 
+
 if(!isset($_SESSION["username"])){
     header("Location: login.php");
     exit();
 }
 
 $role = $_SESSION["role"];
+
 ?>
 
 <!DOCTYPE html>
@@ -84,7 +86,11 @@ $role = $_SESSION["role"];
                     </section> -->
                 
                     <section id="view_orders" class="hidden-section">
-                        <h2 class="text-2xl font-semibold mb-4">📋 View Orders</h2>
+                        <h2 class="text-2xl font-semibold mb-4 mt-4">📋 View Orders</h2>
+
+                        <div class="w-full h-full flex flex-row justify-center align-center items-center flex-wrap overflow-auto gap-4 p-4">
+                            <?php include "display_orders.php"; ?>
+                        </div>
                     </section>
 
                     <section id="update_order_status" class="hidden-section">
@@ -92,7 +98,10 @@ $role = $_SESSION["role"];
                     </section>
 
                     <section id="order_details" class="hidden-section">
-                        <h2 class="text-2xl font-semibold mb-4">📝 View Order Details</h2>
+                        <h2 class="text-2xl font-semibold mb-4 mt-4">📝 View Order Details</h2>
+                        <div class="w-full h-full flex flex-row justify-center align-center items-center flex-wrap overflow-auto gap-4 p-4">
+                            <?php include "display_order_details.php"; ?>
+                        </div>
                     </section>
 
                     <section id="employee_info" class="hidden-section w-full h-full">
