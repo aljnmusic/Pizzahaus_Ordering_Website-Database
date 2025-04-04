@@ -27,6 +27,16 @@
         .redtext{
             color: red;
         }
+
+        #notification {
+            display: none;
+            position: absolute;
+            /* background-color:rgb(126, 224, 129); */
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            z-index: 1000;
+        }
     </style>
 </head>
 <body class="h-screen flex flex-col">
@@ -1160,6 +1170,8 @@
                             </div>
                     </div>
                 </div>
+
+                <div id="notification" class="bg-accent text-white px-4 py-2 rounded">Successfully Added to cart!</div>
         </div>
 
         <footer class="footer bg-accent items-center p-4">
@@ -1195,6 +1207,8 @@
 
             // Update cart UI
             updateCartDisplay();
+
+            showNotification(event.target);
         });
     });
 
@@ -1206,6 +1220,17 @@
         document.getElementById('cart-count').textContent = cartCount;
         document.getElementById('cart-item-count').textContent = `${cartCount} Items`;
         document.getElementById('cart-total').textContent = `Subtotal: ₱${cartTotal}`;
+    }
+
+    function showNotification(button) {
+        const notification = document.getElementById('notification');
+        const rect = button.getBoundingClientRect();
+        notification.style.top = `${rect.top + window.scrollY}px`;
+        notification.style.left = `${rect.left + window.scrollX - 220}px`; // Position it 10px to the right of the button
+        notification.style.display = 'block';
+        setTimeout(() => {
+            notification.style.display = 'none';
+        }, 10000);
     }
 </script>
 
