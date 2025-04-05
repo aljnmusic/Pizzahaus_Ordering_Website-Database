@@ -1,53 +1,3 @@
-<?php
-session_start();
-include "employee_db.php";
-
-$error_message = "";
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (!empty($_POST["username"]) && !empty($_POST["password"])) {
-        $username = $_POST["username"];
-        $password = trim($_POST["password"]);
-
-        $stmt = $conn->prepare("SELECT * FROM employee WHERE username = ?");
-        $stmt->bind_param("s", $username);
-        $stmt->execute();
-        $result = $stmt->get_result();
-
-        if ($result->num_rows > 0) {
-            $row = $result->fetch_assoc();
-            $storedHashedPassword = $row["password"];
-
-            if (password_verify($password, $storedHashedPassword)) {
-                $_SESSION["employee_id"] = $row["employee_id"];
-                $_SESSION["name"] = $row["name"];
-                $_SESSION["username"] = $row["username"];
-                $_SESSION["role"] = $row["role"];
-                $_SESSION["hire_date"] = $row["hire_date"];
-                $_SESSION["type"] = $row["type"];
-                $_SESSION["status"] = $row["status"];
-                $_SESSION["email"] = $row["email"];
-                $_SESSION["phone_number"] = $row["phone_number"];
-
-                header("Location: dashboard.php");
-                exit();
-            } else {
-                $error_message = "❌ Invalid username or password.";
-            }
-        } else {
-            $error_message = "❌ Employee not found.";
-        }
-        
-        $stmt->close();
-    } else {
-        $error_message = "❌ Please enter both username and password.";
-    }
-}
-?>
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -79,21 +29,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body class="h-screen flex justify-center align-center flex-col bg-slate-500">
 
-    <header class="navbar bg-blue-400 text-center p-0 flex justify-center align-center">
+    <header class="navbar bg-base-content text-center p-0 flex justify-center align-center">
             <div class="block lg:hidden">
                 <div class="flex-none">
-                    <img src="img/emlogo.png" alt="" class="h-9 w-full">
+                    <img src="img/1emlogo.png" alt="" class="h-9 w-full">
                 </div>
             </div>
     </header>
 
-    <main class="flex-grow flex flex-col justify-center align-center     bg-base-100 overflow-auto w-full">
+    <main class="flex-grow flex flex-col justify-center align-center bg-base-100 overflow-auto w-full">
         <div class="flex justify-center align-center">
-            <div class="relative w-full mx-2 rounded max-w-md bg-white px-6 pt-10 pb-8 shadow-xl ring-1 ring-gray-900/5 sm:rounded-xl sm:px-10">
+            <div class="relative w-full mx-2 rounded max-w-md bg-white px-6 pt-10 pb-8 shadow-xl ring-1 ring-gray-500 sm:rounded-xl sm:px-10">
                 <div class="w-full">
                     <div class="text-center">
                         <h1 class="text-3xl font-semibold text-gray-900">Sign in</h1>
-                        <p class="mt-2 text-gray-500">Sign in below to access your account</p>
+                        <p class="mt-2 text-gray-500">Sign in below to access your admin dashboard.</p>
                     </div>
                     <div class="mt-5">
                         <form action="" method="POST">
@@ -106,18 +56,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 <label for="password" class="pointer-events-none absolute top-0 left-0 origin-left -translate-y-1/2 transform text-sm text-gray-800 opacity-75 transition-all duration-100 ease-in-out peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-focus:top-0 peer-focus:pl-0 peer-focus:text-sm peer-focus:text-gray-800">Password</label>
                             </div>
                             <div class="my-6">
-                                <button type="submit" class="w-full rounded-md bg-blue-400 px-3 py-4 text-white focus:bg-gray-600 focus:outline-none">Sign in</button>
+                                <button type="submit" class="w-full rounded-md bg-gray-600 hover:bg-gray-700 px-3 py-4 text-white focus:bg-gray-600 focus:outline-none"><a href="admin_dashboard.php">Sign in</a></button>
                             </div>
 
-                            <?php if (!empty($error_message)): ?>
-                                <p class="text-center text-red-500 font-semibold mt-2"><?php echo $error_message; ?></p>
-                            <?php endif; ?>
-
-                            <p class="text-center text-sm text-gray-500">Don&#x27;t have an account yet? <br>
+                            <!-- <p class="text-center text-sm text-gray-500">Don&#x27;t have an account yet? <br>
                                 <a href="#!"
                                     class="font-semibold text-gray-600 hover:underline focus:text-gray-800 focus:outline-none">Contact Your Admin.
                                 </a>.
-                            </p>
+                            </p> -->
                         </form>
                     </div>
                 </div>
@@ -125,8 +71,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
     </main>
 
-    <footer class="footer bg-blue-400 items-center p-4">
-        <aside class="grid-flow-col items-center text-center bg-blue-400 text-stone-950">
+    <footer class="footer bg-base-content items-center p-4">
+        <aside class="grid-flow-col items-center text-center bg-base-content text-white">
             <p>Copyright © 2025 - All right reserved Pizza Haus</p>
         </aside>
     </footer>

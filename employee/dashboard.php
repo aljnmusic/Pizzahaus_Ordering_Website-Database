@@ -21,7 +21,7 @@ $role = $_SESSION["role"];
 
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/daisyui@1.12.0/dist/full.css" rel="stylesheet">
-    <link rel="icon" href="img/favi.png" type="image/x-icon">
+    <link rel="icon" href="img/employee.png" type="image/x-icon">
     <title>Dashboard</title>
 
     <style>

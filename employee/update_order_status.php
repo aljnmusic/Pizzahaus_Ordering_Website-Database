@@ -16,9 +16,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         die("Connection Failed: " . $conn->connect_error);
     }
 
-    $sql = "UPDATE orders SET order_status = ? where order_id = ?";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("si", $status, $order_id);
+    if ($status === "Completed") {
+        $payment_status = "Paid";
+        $sql = "UPDATE orders SET order_status = ?, payment_status = ? WHERE order_id = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("ssi", $status, $payment_status, $order_id);
+    } else {
+        $sql = "UPDATE orders SET order_status = ? WHERE order_id = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("si", $status, $order_id);
+    }
 
     if ($stmt->execute()) {
         $_SESSION['message'] = "Order status updated successfully.";

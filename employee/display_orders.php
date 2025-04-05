@@ -11,7 +11,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "select order_id, customer_id, order_date, total_amount, order_status, payment_status from orders order by order_date desc";
+$sql = "SELECT order_id, customer_id, order_date, total_amount, order_status, payment_status from orders order by order_date DESC";
 $result = $conn->query($sql);
 
 if($result->num_rows > 0){
