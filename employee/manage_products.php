@@ -45,7 +45,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         }
         else{
             $sql = "INSERT INTO product (product_id, name, category, price)
-            VALUES ?, ?, ?, ?";
+            VALUES (?, ?, ?, ?)";
             $stmt = $conn->prepare($sql);
             $stmt->bind_param("issd", $product_id, $product_name, $product_category, $product_price);
             $stmt->execute();

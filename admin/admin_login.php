@@ -1,3 +1,25 @@
+<?php
+session_start();
+
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["login"])) {
+    $username = "admin";
+    $password = "fogi23!";
+
+    $inputUsername = $_POST["username"];
+    $inputPassword = $_POST["password"];
+
+    if($inputUsername === $username && $inputPassword === $password){
+        $_SESSION["login"] = true;
+        header("Location: admin_dashboard.php");
+        exit();
+    } else {
+        header("Location: admin_login.php?error=invalid_credentials");
+        exit();
+    }
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,6 +67,7 @@
                         <h1 class="text-3xl font-semibold text-gray-900">Sign in</h1>
                         <p class="mt-2 text-gray-500">Sign in below to access your admin dashboard.</p>
                     </div>
+
                     <div class="mt-5">
                         <form action="" method="POST">
                             <div class="relative mt-6">
@@ -56,7 +79,7 @@
                                 <label for="password" class="pointer-events-none absolute top-0 left-0 origin-left -translate-y-1/2 transform text-sm text-gray-800 opacity-75 transition-all duration-100 ease-in-out peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-focus:top-0 peer-focus:pl-0 peer-focus:text-sm peer-focus:text-gray-800">Password</label>
                             </div>
                             <div class="my-6">
-                                <button type="submit" class="w-full rounded-md bg-gray-600 hover:bg-gray-700 px-3 py-4 text-white focus:bg-gray-600 focus:outline-none"><a href="admin_dashboard.php">Sign in</a></button>
+                                <button type="submit" name="login" class="w-full rounded-md bg-gray-600 hover:bg-gray-700 px-3 py-4 text-white focus:bg-gray-600 focus:outline-none">Sign in</button>
                             </div>
 
                             <!-- <p class="text-center text-sm text-gray-500">Don&#x27;t have an account yet? <br>
