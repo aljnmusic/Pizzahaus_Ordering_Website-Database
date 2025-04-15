@@ -96,51 +96,21 @@
     <main class="flex-grow bg-base-100 overflow-auto">
         <!-- <img src="img/front.jpg" alt=""> -->
         <div class="p-4 text-center lg:pt-6">
-            <h1 class="text-2xl font-bold text-sans lg:text-4xl">🎉 Special Offers 🎉</h1>
+            <h1 class="text-2xl font-bold font-mono lg:text-4xl">🎉 Customize you Pizza Combo 🎉</h1>
             <p class="text-lg dancing-script-uniquifier lg:text-3xl lg:pt-1">Enjoy our current special offers available for a limited time!</p>
         </div>
 
-        <div class="w-full h-screen grid grid-cols-1 gap-3 mt-2 lg:w-1/2 mx-auto">
-
-            <div class="flex flex-col bg-white border border-gray-200 rounded-lg shadow justify-center items-center mx-2 mb-2">
-                <button class="btn btn-accent w-3/4"><a href="customize.php">Customize your Pizza Combo 👌</a></button>
-            </div>
-            
-            <div class="flex flex-col bg-white border border-gray-200 rounded-lg shadow justify-center items-center mx-2">
-                <a href="#">
-                    <img class="p-0 rounded-t-lg w-32 h-32 object-cover" src="img/combo1a.png" alt="product image" />
-                </a>
-                <div class="px-4 w-full pb-2">
-                        <a href="#">
-                            <h5 class="dancing-script-uniquifier text-xl font-semibold tracking-tight text-gray-900 dark:text-white text-center text-3xl">Comba A</h5><br>
-                            <p class="text-mono text-center">Ham & Cheese & 1.25 Pepsi</p>
-                        </a>
-                        <div class="flex justify-center align-center pt-2">
-                            <div class="card-actions justify-end m-0">
-                                <button class="btn btn-accent"><a href="menu.php">Order Now!</a></button>
-                            </div>
-                        </div>
-                </div>
+        <div class="flex flex-row">
+            <div class="w-3/4 p-4 lg:p-4 text-center grid grid-cols-1 lg:grid-cols-3 gap-2">
+                <?php include 'custom_discount.php'; ?>
             </div>
 
-            <div class="flex flex-col bg-white border border-gray-200 rounded-lg shadow justify-center items-center mx-2 mb-2">
-                <a href="#">
-                    <img class="p-0 rounded-t-lg w-40 h-40 object-cover" src="img/combo2a.png" alt="product image" />
-                </a>
-                <div class="px-4 w-full pb-2">
-                        <a href="#">
-                            <h5 class="dancing-script-uniquifier text-xl font-semibold tracking-tight text-gray-900 dark:text-white text-center text-3xl">Combo B</h5><br>
-                            <p class="text-mono text-center">Hawaiian Delight & Korean & 1.25 Pepsi</p>
-                        </a>
-                        <div class="flex justify-center align-center pt-2">
-                            <div class="card-actions justify-end m-0">
-                                <button class="btn btn-accent"><a href="menu.php">Order Now!</a></button>
-                            </div>
-                        </div>
-                </div>
+            <div class="w-1/4 p-4 lg:p-4 text-center bg-base-200 rounded-lg shadow-lg sticky top-0 h-full">
+                <h1 class="text-xl font-bold font-mono lg:text-2xl">🍕 Customize your Pizza 🍕</h1>
+                <h2 id="selected-product" class="flex flex-col justfiy-center align-center m-6 font-semibold text-xl font-mono"></h2>
+                <div id="total-price" class="mt-4 text-lg font-bold">Total: ₱0.00</div>
             </div>
-    </div>
-
+        </div>
         
 
         <footer class="footer bg-accent items-center p-4">
@@ -149,5 +119,86 @@
             </aside>
         </footer>
     </main>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const products = document.querySelectorAll('.product');
+        const selectedProductElement = document.querySelector('#selected-product');
+        const totalPriceElement = document.querySelector('#total-price');
+        let totalPrice = 0;
+
+        // Function to update the total price display
+        function updateTotalPrice() {
+            totalPriceElement.textContent = `Total: ₱${totalPrice.toFixed(2)}`;
+        }
+
+        // Function to save selected items to local storage
+        function saveToLocalStorage() {
+            const selectedItems = [];
+            selectedProductElement.querySelectorAll('.selected-item').forEach(item => {
+                const name = item.getAttribute('data-name');
+                const price = parseFloat(item.getAttribute('data-price'));
+                selectedItems.push({ name, price });
+            });
+            localStorage.setItem('selectedItems', JSON.stringify(selectedItems));
+            localStorage.setItem('totalPrice', totalPrice.toFixed(2));
+        }
+
+        // Function to restore selected items from local storage
+        function restoreFromLocalStorage() {
+            const savedItems = JSON.parse(localStorage.getItem('selectedItems')) || [];
+            totalPrice = parseFloat(localStorage.getItem('totalPrice')) || 0;
+
+            savedItems.forEach(item => {
+                addSelectedItem(item.name, item.price);
+            });
+
+            updateTotalPrice();
+        }
+
+        // Function to add a selected item to the DOM
+        function addSelectedItem(name, price) {
+            const productDiv = document.createElement('div');
+            productDiv.classList.add('selected-item', 'mb-2', 'flex', 'justify-between', 'items-center');
+            productDiv.setAttribute('data-name', name);
+            productDiv.setAttribute('data-price', price);
+
+            const productText = document.createTextNode(`${name} - ₱${price.toFixed(2)}`);
+
+            const removeButton = document.createElement('button');
+            removeButton.textContent = '✖';
+            removeButton.classList.add('ml-1', 'text-red-500', 'hover:text-red-700', 'focus:outline-none');
+
+            productDiv.appendChild(productText);
+            productDiv.appendChild(removeButton);
+
+            selectedProductElement.appendChild(productDiv);
+
+            removeButton.addEventListener('click', function() {
+                productDiv.remove();
+                totalPrice -= price;
+                updateTotalPrice();
+                saveToLocalStorage();
+            });
+        }
+
+        // Event listener for product clicks
+        products.forEach(product => {
+            product.addEventListener('click', function() {
+                const productName = this.getAttribute('data-name');
+                const productPrice = parseFloat(this.getAttribute('data-price'));
+
+                addSelectedItem(productName, productPrice);
+
+                totalPrice += productPrice;
+                updateTotalPrice();
+                saveToLocalStorage();
+            });
+        });
+
+        // Restore items from local storage on page load
+        restoreFromLocalStorage();
+    });
+</script>
 </body>
 </html>
