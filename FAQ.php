@@ -212,6 +212,7 @@
             </div>
         </div>
         </div>
+
     </main>
 
     <footer class="footer bg-accent items-center p-4">

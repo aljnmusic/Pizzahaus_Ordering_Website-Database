@@ -29,6 +29,12 @@ session_start();
             font-weight: 400;
             font-style: normal;
         }
+
+        .submit-button {
+            width: 45.5%; /* or any specific width */
+            padding: 10px 20px; /* adjust as needed */
+    /* Add any other styles that the submit button has */
+        }
     </style>
 </head>
 <body class="h-screen flex flex-col">
@@ -44,7 +50,7 @@ session_start();
                     <ul tabindex="0" class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow flex justify-center items-center absolute top-12">
                         <li><a href="home.php">🏠 Home</a></li>
                         <li><a href="menu.php">🍕 Menu / Order Now</a></li>
-                        <li><a>📦 Order Tracking</a></li>
+                        <li><a href="tracking.php">📦 Order Tracking</a></li>
                         <li><a>🔥 Special Offers</a></li>
                         <li><a href="contact.php">✉️ Contact Us</a></li>
                         <li><a href="about.php">ℹ About Us</a></li>
@@ -151,9 +157,10 @@ session_start();
                     <div>
                         Your order has been successfully placed! To track the status of your order, click this link ➡ <a href="tracking.php" class="text-blue-600 hover:underline">Order Tracking</a>
                 </dialog> -->
+                
             </form>
 
-            <button onclick="clearCart()" class="mt-4 mb-4 bg-red-500 lg:w-1/2 w-full text-white px-4 py-2 rounded hover:bg-red-600 ">Clear Cart</button>
+            <button onclick="clearCart()" class="mt-4 mb-4 bg-red-500 lg:w-1/2 w-full text-white px-4 py-2 rounded hover:bg-red-600 submit-button">Clear Cart</button>
         </div>
 
 

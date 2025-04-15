@@ -138,12 +138,18 @@
             <h1 class="text-4xl font-bold text-sans text-center dancing-script-uniquifier lg:text-5xl">🏆 Goals 🏆</h1>
             <p class="text-sm font-bold text-center font-mono mt-2 lg:text-lg lg:italic lg:font-mono lg:font-normal">Regional Expansion builds a good reputation for every family and becomes a key player in the food industry market.</p>
         </div>
-    </main>
 
-    <footer class="footer bg-accent items-center p-4">
+        <footer class="footer bg-accent items-center p-4 w-full">
         <aside class="grid-flow-col items-center text-center bg-accent text-stone-950">
             <p>Copyright © 2025 - All right reserved Pizza Haus</p>
         </aside>
     </footer>
+    </main>
+
+    <!-- <footer class="footer bg-accent items-center p-4">
+        <aside class="grid-flow-col items-center text-center bg-accent text-stone-950">
+            <p>Copyright © 2025 - All right reserved Pizza Haus</p>
+        </aside>
+    </footer> -->
 </body>
 </html>
