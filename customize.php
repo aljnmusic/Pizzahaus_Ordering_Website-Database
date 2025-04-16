@@ -1,3 +1,9 @@
+<?php
+
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -109,7 +115,20 @@
                 <h1 class="text-xl font-bold font-mono lg:text-2xl">🍕 Customize your Pizza 🍕</h1>
                 <h2 id="selected-product" class="flex flex-col justfiy-center align-center m-6 font-semibold text-xl font-mono"></h2>
                 <div id="total-price" class="mt-4 text-lg font-bold">Total: ₱0.00</div>
+
+                <form id="order-form" action="custom_insert.php" method="POST" class="mt-4">
+
+                    <input type="text" name="name" placeholder="Name" class="input input-bordered input-accent w-full  mt-4" id="name-input" required />
+                    <input type="email" name="email" placeholder="Email" class="input input-bordered input-accent w-full mt-4" id="email-input" required />
+                    <input type="number" name="phone" placeholder="Phone number" class="input input-bordered input-accent w-full mt-4" id="phone-input" required />
+                    <input type="text" name="address" placeholder="Address" class="input input-bordered input-accent w-full mt-4" id="address-input" required />
+
+                    <input type="hidden" name="selectedItems" id="selected-items-input">
+                    <input type="hidden" name="totalPrice" id="total-price-input">
+                    <button type="submit" id="place-order-button" class="btn btn-primary w-full mt-4">Place Order</button>
+                </form>
             </div>
+
         </div>
         
 
@@ -125,14 +144,14 @@
         const products = document.querySelectorAll('.product');
         const selectedProductElement = document.querySelector('#selected-product');
         const totalPriceElement = document.querySelector('#total-price');
+        const selectedItemsInput = document.querySelector('#selected-items-input');
+        const totalPriceInput = document.querySelector('#total-price-input');
         let totalPrice = 0;
 
-        // Function to update the total price display
         function updateTotalPrice() {
             totalPriceElement.textContent = `Total: ₱${totalPrice.toFixed(2)}`;
         }
 
-        // Function to save selected items to local storage
         function saveToLocalStorage() {
             const selectedItems = [];
             selectedProductElement.querySelectorAll('.selected-item').forEach(item => {
@@ -144,7 +163,6 @@
             localStorage.setItem('totalPrice', totalPrice.toFixed(2));
         }
 
-        // Function to restore selected items from local storage
         function restoreFromLocalStorage() {
             const savedItems = JSON.parse(localStorage.getItem('selectedItems')) || [];
             totalPrice = parseFloat(localStorage.getItem('totalPrice')) || 0;
@@ -156,7 +174,6 @@
             updateTotalPrice();
         }
 
-        // Function to add a selected item to the DOM
         function addSelectedItem(name, price) {
             const productDiv = document.createElement('div');
             productDiv.classList.add('selected-item', 'mb-2', 'flex', 'justify-between', 'items-center');
@@ -182,7 +199,6 @@
             });
         }
 
-        // Event listener for product clicks
         products.forEach(product => {
             product.addEventListener('click', function() {
                 const productName = this.getAttribute('data-name');
@@ -198,7 +214,20 @@
 
         // Restore items from local storage on page load
         restoreFromLocalStorage();
+
+        // Handle form submission
+        document.getElementById('order-form').addEventListener('submit', function(event) {
+            const selectedItems = JSON.parse(localStorage.getItem('selectedItems')) || [];
+            const totalPrice = localStorage.getItem('totalPrice') || '0.00';
+
+            // Populate hidden inputs with data
+            selectedItemsInput.value = JSON.stringify(selectedItems);
+            totalPriceInput.value = totalPrice;
+        });
     });
+
 </script>
+
+
 </body>
 </html>

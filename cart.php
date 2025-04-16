@@ -251,7 +251,32 @@ session_start();
         // Load cart items on page load
         displayCart();
         
-        
+        document.getElementById('checkout_form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission to handle it manually
+
+            // Extract email from form
+            var customerEmail = document.getElementById('email-input').value;
+
+            // Set a timeout to send the email after 1 minute
+            setTimeout(function() {
+                sendEmailNotification(customerEmail);
+            }, 60000); // 60000 milliseconds = 1 minute
+
+            // Submit the form after setting the timeout
+            this.submit();
+        });
+
+        function sendEmailNotification(email) {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "sendemail.php", true);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    console.log(xhr.responseText);
+                }
+            };
+            xhr.send("customer_email=" + encodeURIComponent(email));
+        }
     </script>
     
 </body>
