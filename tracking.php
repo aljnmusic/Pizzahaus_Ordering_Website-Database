@@ -119,7 +119,7 @@ if(isset($_POST['selectedItems']) && isset($_POST['totalPrice'])){
     </div>
 
     <div class="mt-4 mx-2">
-        <h2 class="text-lg font-bold text-center">📜 Order Summary 📜</h2>
+        <h2 class="text-lg font-bold text-center">📜 Regular Order Summary 📜</h2>
         <?php if (!$isFromCustomInsert): ?>
             <table class="table-auto w-full border-collapse border border-gray-300 mt-2">
                 <thead>
@@ -136,13 +136,14 @@ if(isset($_POST['selectedItems']) && isset($_POST['totalPrice'])){
 
         <div class="container mx-auto p-4">
             <div class="bg-green-100 p-4 rounded shadow flex flex-col items-center">
-                <h2 class="text-xl font-semibold mb-2 ">Selected Items: </h2>
+                <h1 class="text-lg font-bold text-center">📃 Special Customize Order Summary 📃</h1>
+                <h2 class="text-lg font-semibold mb-2 ">Selected Items: </h2>
                 <ul class="list-disc pl-5 text-xl font-mono flex flex-row gap-10 flex-wrap justify-center items-center" 
                     <?php foreach ($selectedItems as $item): ?>
                         <li><?php echo htmlspecialchars($item['name']); ?> - ₱<?php echo number_format($item['price'], 2); ?></li>
                     <?php endforeach; ?>
                 </ul>
-                <div class="mt-4 text-2xl font-semibold text-center ">  
+                <div class="mt-4 text-lg font-semibold text-center ">  
                     <strong>Total Price: </strong>₱<?php echo number_format($totalPrice, 2); ?>
                 </div>
             </div>

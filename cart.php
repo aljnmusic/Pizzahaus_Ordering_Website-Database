@@ -252,31 +252,29 @@ session_start();
         displayCart();
         
         document.getElementById('checkout_form').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent form submission to handle it manually
+    event.preventDefault(); // Prevent form submission to handle it manually
 
-            // Extract email from form
-            var customerEmail = document.getElementById('email-input').value;
+    // Extract email from form
+    var customerEmail = document.getElementById('email-input').value;
 
-            // Set a timeout to send the email after 1 minute
-            setTimeout(function() {
-                sendEmailNotification(customerEmail);
-            }, 60000); // 60000 milliseconds = 1 minute
+    // Send the email notification immediately
+    sendEmailNotification(customerEmail);
 
-            // Submit the form after setting the timeout
-            this.submit();
-        });
+    // Submit the form after sending the email
+    this.submit();
+});
 
-        function sendEmailNotification(email) {
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", "sendemail.php", true);
-            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState === 4 && xhr.status === 200) {
-                    console.log(xhr.responseText);
-                }
-            };
-            xhr.send("customer_email=" + encodeURIComponent(email));
+function sendEmailNotification(email) {
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "sendemail.php", true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            console.log(xhr.responseText);
         }
+    };
+    xhr.send("customer_email=" + encodeURIComponent(email));
+}
     </script>
     
 </body>

@@ -85,7 +85,10 @@ $role = $_SESSION["role"];
                     </section> -->
                 
                     <section id="view_orders" class="hidden-section">
-                        <h2 class="text-2xl font-semibold mb-4 mt-4">📋 View Orders</h2>
+                        <div class="flex flex-row justify-between items-center w-full ml-4 mr-4 px-10">
+                            <h2 class="text-2xl font-semibold mb-4 mt-4">📋 View Orders</h2>
+                            <a href="export_orders.php" class="text-2xl font-semibold mb-4 mt-4 hover:bg-blue-200 hover:border rounded hover:text-white">🔼 Export Orders</a>
+                        </div>
 
                         <div id="orders-container" class="w-full h-full flex flex-row justify-center align-center items-center flex-wrap overflow-auto gap-4 p-4">
                             <?php include "display_orders.php"; ?>
