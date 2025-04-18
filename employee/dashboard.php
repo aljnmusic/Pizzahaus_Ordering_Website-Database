@@ -87,7 +87,7 @@ $role = $_SESSION["role"];
                     <section id="view_orders" class="hidden-section">
                         <div class="flex flex-row justify-between items-center w-full ml-4 mr-4 px-10">
                             <h2 class="text-2xl font-semibold mb-4 mt-4">📋 View Orders</h2>
-                            <a href="export_orders.php" class="text-2xl font-semibold mb-4 mt-4 hover:bg-blue-200 hover:border rounded hover:text-white">🔼 Export Orders</a>
+                            <button class="btn btn-primary btn-sm font-semibold font-mono text-lg bg-blue-400 hover:bg-blue-600 text-white hover:text-white"><a href="export_orders.php">🔼 Export Orders</a></button>
                         </div>
 
                         <div id="orders-container" class="w-full h-full flex flex-row justify-center align-center items-center flex-wrap overflow-auto gap-4 p-4">
@@ -122,7 +122,10 @@ $role = $_SESSION["role"];
                     </section>
 
                     <section id="order_details" class="hidden-section">
-                        <h2 class="text-2xl font-semibold mb-4 mt-4">📝 View Order Details</h2>
+                        <div class="flex flex-row justify-between items-center w-full ml-4 mr-4 px-10">
+                            <h2 class="text-2xl font-semibold mb-4 mt-4">📝 View Order Details</h2>
+                            <button class="btn btn-primary btn-sm font-semibold font-mono text-lg bg-blue-400 hover:bg-blue-600 text-white hover:text-white"><a href="export_order_details.php">🔼 Export Order Details</a></button>
+                        </div>
                         <div id="order-details-container" class="w-full h-full flex flex-row justify-center align-center items-center flex-wrap overflow-auto gap-4 p-4">
                             <?php include "display_order_details.php"; ?>
                         </div>
