@@ -44,6 +44,14 @@ function exportSalesReport($conn, $sql, $type, &$sheet, &$row){
     }
 };
 
+$sql_daily = "SELECT DATE(order_date) as Period, SUM(total_amount) as total_sales
+              FROM orders
+              WHERE order_status = 'Completed'
+              GROUP BY DATE(order_date)
+              ORDER BY DATE(order_date) DESC";
+
+$writeSalesData($conn, $sql_daily, "Daily Sales", $sheet, $row);
+
 header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
 header("Content-Disposition: attachment;filename=\"$filename\"");
 header('Cache-Control: max-age=0');
