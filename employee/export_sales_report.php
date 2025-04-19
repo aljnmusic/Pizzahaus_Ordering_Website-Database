@@ -34,7 +34,7 @@ function writeSection($conn, $sql, $title, &$sheet, &$row) {
         $row++;
     }
 
-    // Add one empty row to separate sections
+    
     $row++;
 }
 

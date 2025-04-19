@@ -247,7 +247,11 @@ $role = $_SESSION["role"];
                     </section>
 
                     <section id="product_list" class="hidden-section">
-                        <h2 class="text-2xl font-semibold mb-0 mt-8">📜 View Product List</h2>
+                        <div class="flex flex-row justify-between items-center w-full ml-4 mr-4 px-10">
+                            <h2 class="text-2xl font-semibold mb-4 mt-4">📝 View Order Details</h2>
+                            <button class="btn btn-primary btn-sm font-semibold font-mono text-lg bg-blue-400 hover:bg-blue-600 text-white hover:text-white"><a href="export_product_list.php">🔼 Export Product List</a></button>
+                        </div>  
+
                         <div id="sales-report-container" class="w-full h-full flex flex-col justify-start align-center items-center flex-wrap overflow-auto gap-4 p-4 pt-0">
                             <div class="w-full flex flex-row justify-center align-center items-center overflow-auto gap-4">
                                 <?php include "product_list.php"; ?>
