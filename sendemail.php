@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
               <title>Order Ready Notification</title>
             </head>
             <body>
-              <h2 style='font-family: \"Dancing Script\", cursive; font-size: 40px; font-weight: bold; color: #ff0000; text-shadow: 2px 2px 5px black; text-align: center;'>testPizza Haus</h2>
+              <h2 style='font-family: \"Dancing Script\", cursive; font-size: 40px; font-weight: bold; color: #ff0000; text-shadow: 2px 2px 5px black; text-align: center;'>Pizza Haus</h2>
               <h1 style='cursive; font-size: 40px; font-weight: bold; text-shadow: 2px 2px 5px black; text-align: center;'>Your order is ready for pickup!</h1>
               <p>Thank you for your patience. You can now pick up your order at the counter.</p>
               <p>Best regards,<br>John Rey 'Pogi' Enceso</p>
