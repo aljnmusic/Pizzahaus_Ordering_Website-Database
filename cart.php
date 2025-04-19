@@ -146,7 +146,7 @@ session_start();
         <button onclick="modal.showModal()" class="mt-4 mb-2 bg-green-300 text-white px-4 py-2 rounded hover:bg-green-500 mx-3" >Place Order</button> -->
 
                 <input type="hidden" name="cart_data" id="cart-data">
-                <button onclick="modal.showModal()" type="submit" class="btn btn-primary w-full mt-4">Submit Order</button>
+                <button onclick="modal.showModal()" type="submit" name="order_submitted" class="btn btn-primary w-full mt-4">Submit Order</button>
                 <!-- <button onclick="clearCart()" class="mt-4 mb-4 bg-red-500 w-full text-white px-4 py-2 rounded hover:bg-red-600 ">Clear Cart</button> -->
 
                 <!-- <dialog onclick="modal.close()" id="modal" class="p-6 bg-white rounded-lg shadow-lg w-full left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">

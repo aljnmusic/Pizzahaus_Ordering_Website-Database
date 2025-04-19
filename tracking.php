@@ -150,7 +150,7 @@ if(isset($_POST['selectedItems']) && isset($_POST['totalPrice'])){
         </div>
     </div>
 
-    <footer class="footer bg-accent items-center p-4">
+        <footer class="footer bg-accent items-center p-4">
         <aside class="grid-flow-col items-center text-center bg-accent text-stone-950">
             <p>Copyright © 2025 - All right reserved Pizza Haus</p>
         </aside>
