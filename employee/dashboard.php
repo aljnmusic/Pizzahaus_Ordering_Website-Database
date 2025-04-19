@@ -85,7 +85,7 @@ $role = $_SESSION["role"];
                     </section> -->
                 
                     <section id="view_orders" class="hidden-section">
-                        <div class="flex flex-row justify-between items-center w-full ml-4 mr-4 px-10">
+                        <div class="flex flex-row justify-between items-center w-full ml-4 mr-4 mt-4 px-10">
                             <h2 class="text-2xl font-semibold mb-4 mt-4">📋 View Orders</h2>
                             <button class="btn btn-primary btn-sm font-semibold font-mono text-lg bg-blue-400 hover:bg-blue-600 text-white hover:text-white"><a href="export_orders.php">🔼 Export Orders</a></button>
                         </div>
@@ -122,7 +122,7 @@ $role = $_SESSION["role"];
                     </section>
 
                     <section id="order_details" class="hidden-section">
-                        <div class="flex flex-row justify-between items-center w-full ml-4 mr-4 px-10">
+                        <div class="flex flex-row justify-between items-center w-full ml-4 mr-4 mt-4 px-10">
                             <h2 class="text-2xl font-semibold mb-4 mt-4">📝 View Order Details</h2>
                             <button class="btn btn-primary btn-sm font-semibold font-mono text-lg bg-blue-400 hover:bg-blue-600 text-white hover:text-white"><a href="export_order_details.php">🔼 Export Order Details</a></button>
                         </div>
@@ -186,7 +186,7 @@ $role = $_SESSION["role"];
                     </section> -->
                 
                     <section id="view_orders" class="hidden-section">
-                        <div class="flex flex-row justify-between items-center w-full ml-4 mr-4 px-10">
+                        <div class="flex flex-row justify-between items-center w-full ml-4 mr-4 mt-4 px-10">
                             <h2 class="text-2xl font-semibold mb-4 mt-4">📋 View Orders</h2>
                             <button class="btn btn-primary btn-sm font-semibold font-mono text-lg bg-blue-400 hover:bg-blue-600 text-white hover:text-white"><a href="export_orders.php">🔼 Export Orders</a></button>
                         </div>
@@ -223,7 +223,7 @@ $role = $_SESSION["role"];
                     </section>
 
                     <section id="order_details" class="hidden-section">
-                        <div class="flex flex-row justify-between items-center w-full ml-4 mr-4 px-10">
+                        <div class="flex flex-row justify-between items-center w-full ml-4 mr-4 mt-4 px-10">
                             <h2 class="text-2xl font-semibold mb-4 mt-4">📝 View Order Details</h2>
                             <button class="btn btn-primary btn-sm font-semibold font-mono text-lg bg-blue-400 hover:bg-blue-600 text-white hover:text-white"><a href="export_order_details.php">🔼 Export Order Details</a></button>
                         </div>
@@ -234,8 +234,8 @@ $role = $_SESSION["role"];
                     </section>
 
                     <section id="sales_report" class="hidden-section">
-                        <div class="flex flex-row justify-between items-center w-full ml-4 mr-4 px-10">
-                            <h2 class="text-2xl font-semibold mb-4 mt-4">📝 View Order Details</h2>
+                        <div class="flex flex-row justify-between items-center w-full ml-4 mr-4 mt-4 px-10">
+                            <h2 class="text-2xl font-semibold mb-4 mt-4">📝 View Sales Report</h2>
                             <button class="btn btn-primary btn-sm font-semibold font-mono text-lg bg-blue-400 hover:bg-blue-600 text-white hover:text-white"><a href="export_sales_report.php">🔼 Export Sales Report</a></button>
                         </div>        
 
@@ -247,7 +247,7 @@ $role = $_SESSION["role"];
                     </section>
 
                     <section id="product_list" class="hidden-section">
-                        <div class="flex flex-row justify-between items-center w-full ml-4 mr-4 px-10">
+                        <div class="flex flex-row justify-between items-center w-full ml-4 mr-4 mt-4 px-10">
                             <h2 class="text-2xl font-semibold mb-4 mt-4">📝 View Order Details</h2>
                             <button class="btn btn-primary btn-sm font-semibold font-mono text-lg bg-blue-400 hover:bg-blue-600 text-white hover:text-white"><a href="export_product_list.php">🔼 Export Product List</a></button>
                         </div>  
