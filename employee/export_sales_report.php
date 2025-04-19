@@ -31,7 +31,16 @@ $row = 3;
 function exportSalesReport($conn, $sql, $type, &$sheet, &$row){
     $result = $conn->query($sql);
     if($result->num_rows > 0){
-
+        while($data = $result->fetch_assoc()){
+            $sheet->setCellValue("A$row", $data['Period']);
+            $sheet->setCellvalue("B$row", number_format($data['Total Sales'], 2));
+            $sheet->setCellValue("C$row", $type);
+            $row++; 
+        }
+    } else {
+        $sheet->setCellValue("A$row", "No sales data available for $type");
+        $sheet->mergeCells("A$row:C$row");
+        $row++;
     }
 };
 
