@@ -120,7 +120,7 @@ if(isset($_POST['selectedItems']) && isset($_POST['totalPrice'])){
 
     <div class="mt-4 mx-2">
         <h2 class="text-lg font-bold text-center">📜 Regular Order Summary 📜</h2>
-        <?php if (!$isFromCustomInsert): ?>
+
             <table class="table-auto w-full border-collapse border border-gray-300 mt-2">
                 <thead>
                     <tr class="bg-green-300">
@@ -132,7 +132,7 @@ if(isset($_POST['selectedItems']) && isset($_POST['totalPrice'])){
                 </thead>
                 <tbody id="order-summary"></tbody>
             </table>
-        <?php endif; ?>
+
 
         <div class="container mx-auto p-4">
             <div class="bg-green-100 p-4 rounded shadow flex flex-col items-center">
