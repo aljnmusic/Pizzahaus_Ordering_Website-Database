@@ -207,7 +207,7 @@
                     </a>
                     <div class="px-4 w-full pb-2">
                             <a href="#">
-                                <h5 class="dancing-script-uniquifier text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">Peperoni</h5>
+                                <h5 class="dancing-script-uniquifier text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">Pepperoni</h5>
                             </a>
                             <div class="flex items-center justify-between pt-2">
                                 <span class="text-2xl font-bold text-gray-900 dark:text-white">₱135</span>
@@ -217,7 +217,7 @@
                                     <span class="gradient"></span>
                                     </span> -->
 
-                                    <button class="bg-accent p-2 inline-block rounded-lg mx-2 add-to-cart" data-name="Peperoni" data-price="135">
+                                    <button class="bg-accent p-2 inline-block rounded-lg mx-2 add-to-cart" data-name="Pepperoni" data-price="135">
                                         <svg version="1.1" id="Layer_1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink" x="0px" y="0px" class="w-4" viewBox="0 0 20 20" style="enable-background:new 0 0 20 20;" xml:space="preserve">
                                         <style type="text/css">
                                         .st0 {

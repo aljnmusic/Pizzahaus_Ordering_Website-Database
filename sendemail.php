@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
               <h1 style='cursive; font-size: 40px; font-weight: bold; text-shadow: 2px 2px 5px black; text-align: center;'>Your order is ready for pickup!</h1>
               <p>Thank you for your patience. You can now pick up your order at the counter.</p>
               <p>Best regards,<br>John Rey 'Pogi' Enceso</p>
-              <img src='cid:image_cid'>
+              <p style='text-align: center; font-size: 12px; color: #888;'>Do not reply to this email. This is an automated message.</p>
             </body>
             </html>
             ";
