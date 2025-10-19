@@ -1,8 +1,8 @@
 # 🍕 Pizza Haus Ordering Website
 
-**A full-stack web application for ordering pizzas and menu items, developed as part of a Database Management course project.**
+**A full-stack web application for ordering pizzas and menu items, developed as part of a Database Management subject project.**
 
-This project was developed by a group of students for our **Database Management** subject. While the entire team contributed ideas and efforts, **I was primarily responsible for the coding** and implementation of the back-end logic, front-end integration, and database setup.
+This project was developed as part of our Database Management subject, with contributions from all team members. My main focus was on coding and implementing the back-end logic, integrating the front-end, and setting up the database.
 
 ***
 
@@ -36,7 +36,7 @@ To run this project locally, you need a local web server environment like **XAMP
 1.  **Clone the Repository**
     First, clone the repository to your local machine:
     ```bash
-    git clone [https://github.com/aljnmusic/Pizzahaus_Ordering_Website-Database](https://github.com/aljnmusic/Pizzahaus_Ordering_Website-Database)
+    git clone https://github.com/aljnmusic/Pizzahaus_Ordering_Website-Database
     # Note: Using the actual folder name after cloning the URL.
     cd Pizzahaus_Ordering_Website-Database 
     ```
@@ -106,14 +106,13 @@ To run this project locally, you need a local web server environment like **XAMP
 
 This project was developed by:
 
--   **John Aljenne Galos** (Primary Developer, Backend Logic and Coding)
+-   **John Aljenne Galos** (Project Planner, Primary Developer, Frontend & Backend, Logic and Coding)
     [GitHub: aljnmusic](https://github.com/aljnmusic)
--   **[Classmate 1 Name]** (Frontend Development, UI/UX)
-    [GitHub: [Classmate 1 GitHub]](Link)
--   **[Classmate 2 Name]** (Database Setup, SQL Schema)
-    [GitHub: [Classmate 2 GitHub]](Link)
--   **[Classmate 3 Name]** (Project Manager, Design)
-    [GitHub: [Classmate 3 GitHub]](Link)
+-   **Ryan Bondad** (Logic, Photo Editing, Data Gathering, Documentation)  
+-   **Bruce Arnold Goyena** (Basic Frontend Development, Data Gathering, Logic, Documentation)
+-   **Jonathan Borebor** (Documentation, Data Gathering, Logic)
+-   **John Michael Maleza** (Documentation, Data Gathering, Photo Editing)
+-   **John Rey Enciso** (Documentation, Data Gathering)
 
 ***
 
